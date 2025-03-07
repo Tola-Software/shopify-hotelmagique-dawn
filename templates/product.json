@@ -61,16 +61,10 @@
         "collapsible-row-3": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Care Instructions",
+            "heading": "SHIPPING",
             "icon": "none",
-            "content": "",
+            "content": "<p>Shipping costs are calculated and added during check out and vary depending on your location.</p><p>Orders are shipped within 48 hours from Monday till Friday during working hours.</p><p>All products except for magique rugs are shipped from The Netherlands.</p><p>International duties and taxes are the responsibility of the customer.</p><p><br/></p><p>A1 and A2 size art prints, book The Pleasure of Leisure, and magique rugs are non-refundable, all other products can be returned within 14 days. Read all the <a href=\"https://www.hotelmagique.com/pages/faqs-1\" target=\"_blank\"><span style=\"text-decoration:underline\">FAQs, Terms & Conditions</span></a>.</p>",
             "page": ""
-          }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
           }
         }
       },
@@ -83,8 +77,7 @@
         "buy_buttons",
         "description",
         "collapsible-row-2",
-        "collapsible-row-3",
-        "share"
+        "collapsible-row-3"
       ],
       "settings": {
         "enable_sticky_info": true,
