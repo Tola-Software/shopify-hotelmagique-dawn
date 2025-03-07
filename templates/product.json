@@ -34,13 +34,6 @@
           "type": "price",
           "settings": {}
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
         "quantity_selector": {
           "type": "quantity_selector",
           "settings": {}
@@ -56,30 +49,12 @@
           "type": "description",
           "settings": {}
         },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
-          }
-        },
         "collapsible-row-2": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
+            "heading": "DETAILS",
+            "icon": "none",
+            "content": "<p>Introducing Ambiance de Magique - Di Lunedi x Hôtel Magique Nº 1 to Nº 5. A collection of five one-of-a-kind scented candles, each housed in a unique, handcrafted ceramic vessel created by artist Elise of Di Lunedi. Each vessel, individually crafted and inspired by a recent trip to Sicily, carries the artist’s personal touch, with intricate details inspired by the island’s landscapes and ancient palms.</p><p>Di Lunedi's vessels then traveled to the French Riviera, where they were hand-poured surrounded by fields of flowers, and a coastal breeze. The candles are made with a vegetable-based wax, crafted from pure natural ingredients. Enriched with a splash of magique, this candle blends notes of Citrus, Marine, and Musk with subtle hints of Ginger, Grapefruit, and crisp Ozone, transforming your space into an ambiance of endless summer magique.</p><p>Top notes: Bergamot, Ginger, Grapefruit<br/>Middle notes: Water Jasmine, Ozone<br/>Bottom notes: Musk, Amber, Mate</p><p>Vessel materials: Italian red clay with engobbi, stain, and pigments. Carved details: clear gloss glaze. </p><p>180g /6.3oz. Made in France. Burns up to 50 hours.</p><p><a href=\"https://www.hotelmagique.com/blogs/news/di-lunedi\" target=\"_blank\"><span style=\"text-decoration:underline\">Meet the Artist - Di Lunedi</span></a></p>",
             "page": ""
           }
         },
@@ -87,7 +62,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Care Instructions",
-            "icon": "heart",
+            "icon": "none",
             "content": "",
             "page": ""
           }
@@ -104,12 +79,9 @@
         "title",
         "caption",
         "price",
-        "variant_picker",
         "quantity_selector",
         "buy_buttons",
         "description",
-        "collapsible-row-0",
-        "collapsible-row-1",
         "collapsible-row-2",
         "collapsible-row-3",
         "share"
