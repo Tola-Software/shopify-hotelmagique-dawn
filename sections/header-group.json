@@ -36,16 +36,16 @@
         "enable_language_selector": false
       }
     },
-    "header": {
-      "type": "header",
+    "hm_header_7f7Gyb": {
+      "type": "hm-header",
       "settings": {
         "logo_position": "middle-center",
         "mobile_logo_position": "center",
         "menu": "main-menu",
         "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
+        "sticky_header_type": "always",
         "show_line_separator": true,
-        "color_scheme": "scheme-1",
+        "color_scheme": "",
         "menu_color_scheme": "",
         "enable_country_selector": true,
         "enable_language_selector": true,
@@ -58,6 +58,6 @@
   },
   "order": [
     "announcement-bar",
-    "header"
+    "hm_header_7f7Gyb"
   ]
 }
