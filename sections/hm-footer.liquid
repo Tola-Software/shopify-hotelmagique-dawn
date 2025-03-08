@@ -156,7 +156,7 @@
                 {%- endif -%}
               </div>
 
-              <div class="hm-foote__blocks-grid grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}">
+              <div class="hm-footer__blocks-grid grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}">
                 {%- for block in section.blocks -%}
                   <div
                     class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
