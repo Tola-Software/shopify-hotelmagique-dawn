@@ -12,8 +12,8 @@
     "slideshow_aXP4rw": {
       "type": "slideshow",
       "settings": {
-        "layout": "full_bleed",
-        "slide_height": "medium",
+        "layout": "grid",
+        "slide_height": "small",
         "slider_visual": "counter",
         "auto_rotate": false,
         "change_slides_speed": 5,
@@ -87,9 +87,9 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "",
-        "media_size": "large",
+        "media_size": "medium",
         "constrain_to_viewport": true,
-        "media_fit": "contain",
+        "media_fit": "cover",
         "gallery_layout": "stacked",
         "mobile_thumbnails": "hide",
         "media_position": "left",
