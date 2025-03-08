@@ -280,7 +280,6 @@
     {%- endunless -%}
   {%- endif -%}
 
-  {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 or section.settings.enable_language_selector and localization.available_languages.size > 1 or section.settings.payment_enable -%}
   <div
     class="footer__content-bottom{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
     {% if settings.animations_reveal_on_scroll %}
@@ -329,7 +328,6 @@
       </div>
     </div>
   </div>
-  {%- endif -%}
 </footer>
 
 {% schema %}
