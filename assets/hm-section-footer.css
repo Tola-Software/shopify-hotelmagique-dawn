@@ -506,3 +506,8 @@
     }
   }
 }
+
+/* Custom */
+.hm-footer-newsletter__description{
+  margin-bottom: 30px;
+}
