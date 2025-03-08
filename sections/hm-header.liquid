@@ -237,7 +237,7 @@
 
     <div class="hm-header__right">
       {%- liquid
-        if section.settings.menu-right != blank
+        if section.settings.menu_right != blank
           if section.settings.menu_type_desktop == 'dropdown'
             render 'header-dropdown-menu'
           elsif section.settings.menu_type_desktop != 'drawer'
@@ -543,7 +543,7 @@
     },
     {
       "type": "link_list",
-      "id": "menu-right",
+      "id": "menu_right",
       "default": "main-menu",
       "label": "Menu Right"
     },
