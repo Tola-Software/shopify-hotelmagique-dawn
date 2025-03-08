@@ -537,6 +537,6 @@
   padding-top: 6px;
 }
 
-.footer a{
+.footer-block__details-content .list-menu__item--link{
   font-size: 10.5px;
 }
