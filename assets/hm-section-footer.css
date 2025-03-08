@@ -291,7 +291,8 @@
 }
 
 .footer__copyright {
-  text-align: center;
+  /* text-align: center; */
+  text-align: left;
   margin-top: 1.5rem;
 }
 
