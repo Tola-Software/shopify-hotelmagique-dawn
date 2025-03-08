@@ -16,6 +16,10 @@
   grid-template-columns: 50% 50%;
 }
 
+.hm-footer__blocks-grid .footer-block.grid__item{
+  max-width: 135px;
+}
+
 @media screen and (max-width: 749px) {
   .footer .grid {
     display: block;
