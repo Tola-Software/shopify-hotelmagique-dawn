@@ -183,7 +183,7 @@
       {%- endif -%}
     {%- endif -%}
 
-    <div class="hm-header__left">
+    
       {%- liquid
         if section.settings.menu != blank
           if section.settings.menu_type_desktop == 'dropdown'
@@ -193,7 +193,7 @@
           endif
         endif
       %}
-    </div>
+    
 
     {%- if section.settings.logo_position == 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
