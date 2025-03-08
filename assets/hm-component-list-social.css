@@ -31,3 +31,8 @@
 .list-social__link:hover .icon {
   transform: scale(1.07);
 }
+
+/* Custom */
+.footer__list-social{
+  margin-bottom: 10px;
+}
