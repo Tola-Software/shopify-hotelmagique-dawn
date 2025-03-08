@@ -21,13 +21,6 @@
             "menu": "footer"
           }
         },
-        "link_list_njtJf8": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
-          }
-        },
         "footer_right_wB98ik": {
           "type": "footer_right",
           "settings": {
@@ -37,7 +30,6 @@
       },
       "block_order": [
         "link_list_LLJ94G",
-        "link_list_njtJf8",
         "footer_right_wB98ik"
       ],
       "settings": {
