@@ -462,7 +462,7 @@
 }
 
 .footer-block:only-child .footer-block__brand-info .footer__list-social.list-social {
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .footer-block__brand-info .footer__list-social.list-social {
