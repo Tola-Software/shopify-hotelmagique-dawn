@@ -11,6 +11,11 @@
   display: block;
 }
 
+.hm-footer__blocks-inner{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
 @media screen and (max-width: 749px) {
   .footer .grid {
     display: block;
