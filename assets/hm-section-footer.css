@@ -551,3 +551,9 @@
 .footer-block__details-content .list-menu__item--link{
   font-size: 10.5px;
 }
+
+@media screen and (max-width: 767px) {
+  .hm-footer-newsletter__description{
+    margin-bottom: 20px;
+  }
+}
