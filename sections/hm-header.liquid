@@ -70,6 +70,12 @@
       padding-top: 0.5rem;
     }
   }
+
+  .hm-header__right{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
 </style>
 
 {%- style -%}
@@ -208,7 +214,7 @@
       {%- endif -%}
     {%- endif -%}
 
-    <div>
+    <div class="hm-header__right">
       {%- liquid
         if section.settings.menu != blank
           if section.settings.menu_type_desktop == 'dropdown'
