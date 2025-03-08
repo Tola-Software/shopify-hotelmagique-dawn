@@ -29,6 +29,10 @@
     display: block;
   } */
 
+  .hm-footer__blocks-grid{
+    justify-content: flex-start;
+  }
+
   .footer-block.grid__item {
     padding: 0;
     margin: 4rem 0;
