@@ -263,6 +263,10 @@
   .footer-block__newsletter {
     flex-direction: column;
   }
+
+  .hm-footer__blocks-inner{
+    grid-template-columns: 100%;
+  }
 }
 
 @media screen and (min-width: 750px) {
