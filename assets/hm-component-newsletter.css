@@ -11,7 +11,8 @@
   .newsletter-form {
     align-items: flex-start;
     /* margin: 0 auto; */
-    max-width: 40rem;
+    /* max-width: 40rem; */
+    max-width: 80%;
   }
 }
 
