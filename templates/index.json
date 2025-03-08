@@ -13,7 +13,7 @@
       "type": "image-banner",
       "settings": {
         "image": "shopify://shop_images/hotel_magique_x_di_lunedi_-_ambiance_de_magique_7cae23ae-123d-4797-9a95-5e4680a61cbd.jpg",
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 0,
         "image_height": "large",
         "image_behavior": "none",
         "desktop_content_position": "bottom-center",
