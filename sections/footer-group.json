@@ -37,6 +37,7 @@
         "color_scheme": "",
         "newsletter_enable": true,
         "newsletter_heading": "Check-in",
+        "newsletter_description": "To receive 10% off on your first order and subscribe to our newsletter.",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": true,
