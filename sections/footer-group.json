@@ -14,14 +14,14 @@
     "hm_footer_gHHT4q": {
       "type": "hm-footer",
       "blocks": {
-        "link_list_NgqB6Q": {
+        "link_list_LLJ94G": {
           "type": "link_list",
           "settings": {
             "heading": "Quick links",
             "menu": "footer"
           }
         },
-        "link_list_LLJ94G": {
+        "link_list_njtJf8": {
           "type": "link_list",
           "settings": {
             "heading": "Quick links",
@@ -30,8 +30,8 @@
         }
       },
       "block_order": [
-        "link_list_NgqB6Q",
-        "link_list_LLJ94G"
+        "link_list_LLJ94G",
+        "link_list_njtJf8"
       ],
       "settings": {
         "color_scheme": "",
