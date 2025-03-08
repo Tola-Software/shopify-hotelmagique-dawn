@@ -536,3 +536,7 @@
 .hm-footer-right{
   padding-top: 6px;
 }
+
+.footer a{
+  font-size: 10.5px;
+}
