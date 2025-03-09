@@ -99,42 +99,40 @@
     }
   }
 
-  /* Hover menu functionality */
-  {%- if section.settings.menu_trigger_type == 'hover' -%}
-    @media screen and (min-width: 990px) {
-      .header details:hover > summary::after,
-      .header details[open] > summary::after {
-        transform: rotate(-180deg);
-      }
-
-      .header details:hover > .header__submenu{
-        animation: animateMenuOpen var(--duration-default) ease;
-        animation-fill-mode: forwards;
-        z-index: 1;
-      }
-      /* .header details:hover > summary + *,
-      .header details[open] > summary + * {
-        animation: animateMenuOpen var(--duration-default) ease;
-        animation-fill-mode: forwards;
-      } */
-
-      .header details:hover,
-      .header details[open] {
-        z-index: 3;
-      }
-
-      .header details:hover > summary + *,
-      .header details[open] > summary + * {
-        opacity: 1;
-        transform: translateY(0);
-        visibility: visible;
-      }
-
-      .header details > summary::before {
-        display: none;
-      }
+  /* Fix for hover menu functionality */
+  @media screen and (min-width: 990px) {
+    /* When hover is selected as the menu trigger type */
+    .header details:hover > .header__submenu,
+    .header details[open] > .header__submenu {
+      animation: animateMenuOpen var(--duration-default) ease;
+      animation-fill-mode: forwards;
+      z-index: 3;
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
     }
-  {%- endif -%}
+    
+    /* Make sure dropdown menu is hidden by default */
+    .header details > .header__submenu {
+      opacity: 0;
+      transform: translateY(-15px);
+      visibility: hidden;
+      transition: opacity var(--duration-default) ease,
+                  transform var(--duration-default) ease,
+                  visibility 0s linear var(--duration-default);
+    }
+    
+    /* Ensure the arrow rotates properly on hover */
+    .header details:hover > summary::after,
+    .header details[open] > summary::after {
+      transform: rotate(-180deg);
+    }
+    
+    /* Remove click-only functionality when using hover */
+    .header details > summary::before {
+      display: none;
+    }
+  }
   
   .header {
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
