@@ -2,46 +2,6 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'hm-main-blog.css' | asset_url | stylesheet_tag }}
 
-<style>
-  .blog-articles--column-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-  
-  .blog-articles--column-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-  
-  .blog-articles--column-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-  }
-  
-  .blog-articles--align-left .blog-articles__article .card {
-    text-align: left;
-  }
-  
-  .blog-articles--align-center .blog-articles__article .card {
-    text-align: center;
-  }
-  
-  .blog-articles--align-right .blog-articles__article .card {
-    text-align: right;
-  }
-  
-  @media screen and (max-width: 749px) {
-    .blog-articles--column-2,
-    .blog-articles--column-3,
-    .blog-articles--column-4 {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
