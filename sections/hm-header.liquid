@@ -99,40 +99,70 @@
     }
   }
 
-  /* Fix for hover menu functionality */
-  @media screen and (min-width: 990px) {
-    /* When hover is selected as the menu trigger type */
-    .header details:hover > .header__submenu,
-    .header details[open] > .header__submenu {
-      animation: animateMenuOpen var(--duration-default) ease;
-      animation-fill-mode: forwards;
-      z-index: 3;
-      opacity: 1;
-      transform: translateY(0);
-      visibility: visible;
+  /* Hover menu functionality */
+  {%- if section.settings.menu_trigger_type == 'hover' -%}
+    @media screen and (min-width: 990px) {
+      /* When hover is selected as the menu trigger type */
+      .header details:hover > .header__submenu,
+      .header details[open] > .header__submenu,
+      .header details:hover > summary + *,
+      .header details[open] > summary + * {
+        animation: animateMenuOpen var(--duration-default) ease;
+        animation-fill-mode: forwards;
+        z-index: 3;
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        height: auto !important; /* Force height auto on hover */
+        min-height: 30px; /* Ensure minimum height */
+        overflow: visible !important; /* Ensure content is visible */
+        display: block !important; /* Force display */
+        pointer-events: auto; /* Enable interaction */
+      }
+      
+      /* Make sure dropdown menu is hidden by default but ready to appear */
+      .header details > .header__submenu,
+      .header details > summary + * {
+        opacity: 0;
+        transform: translateY(-15px);
+        visibility: hidden;
+        transition: opacity var(--duration-default) ease,
+                    transform var(--duration-default) ease,
+                    visibility 0s linear var(--duration-default);
+        /* Don't set height: 0 here - that would cause the issue */
+      }
+      
+      /* Target all possible menu elements */
+      .header__submenu, 
+      .header-menu__submenu,
+      .list-menu__submenu,
+      .mega-menu {
+        height: auto !important;
+        min-height: 30px;
+        overflow: visible !important;
+      }
+      
+      /* Ensure the arrow rotates properly on hover */
+      .header details:hover > summary::after,
+      .header details[open] > summary::after {
+        transform: rotate(-180deg);
+      }
+      
+      /* Remove click-only functionality when using hover */
+      .header details > summary::before {
+        display: none;
+      }
+      
+      /* Force dropdown to be block display */
+      .header details[open] > .header__menu-items,
+      .header details:hover > .header__menu-items,
+      .header details[open] > summary + ul,
+      .header details:hover > summary + ul {
+        display: block !important;
+        height: auto !important;
+      }
     }
-    
-    /* Make sure dropdown menu is hidden by default */
-    .header details > .header__submenu {
-      opacity: 0;
-      transform: translateY(-15px);
-      visibility: hidden;
-      transition: opacity var(--duration-default) ease,
-                  transform var(--duration-default) ease,
-                  visibility 0s linear var(--duration-default);
-    }
-    
-    /* Ensure the arrow rotates properly on hover */
-    .header details:hover > summary::after,
-    .header details[open] > summary::after {
-      transform: rotate(-180deg);
-    }
-    
-    /* Remove click-only functionality when using hover */
-    .header details > summary::before {
-      display: none;
-    }
-  }
+  {%- endif -%}
   
   .header {
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
