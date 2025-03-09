@@ -14,7 +14,7 @@
   }
 {%- endstyle -%}
 
-<div class="about-page color-{{ section.settings.color_scheme }}">
+<div class="about-page color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding">
   <div class="page-width">
     <div class="about-container grid grid--1-col grid--2-col-tablet {% if section.settings.layout == 'content_first' %}about-container--reverse{% endif %}">
       {% if section.settings.image != blank %}
