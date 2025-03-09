@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
-{%- style -%}
+
+<style>
   .hm-header.page-width{
     max-width: 1400px;
   }
@@ -98,72 +99,9 @@
       display: block;
     }
   }
+</style>
 
-  /* Hover menu functionality */
-  {%- if section.settings.menu_trigger_type == 'hover' -%}
-    @media screen and (min-width: 990px) {
-      /* When hover is selected as the menu trigger type */
-      .header details:hover > .header__submenu,
-      .header details[open] > .header__submenu,
-      .header details:hover > summary + *,
-      .header details[open] > summary + * {
-        animation: animateMenuOpen var(--duration-default) ease;
-        animation-fill-mode: forwards;
-        z-index: 3;
-        opacity: 1;
-        transform: translateY(0);
-        visibility: visible;
-        height: auto !important; /* Force height auto on hover */
-        min-height: 30px; /* Ensure minimum height */
-        overflow: visible !important; /* Ensure content is visible */
-        display: block !important; /* Force display */
-        pointer-events: auto; /* Enable interaction */
-      }
-      
-      /* Make sure dropdown menu is hidden by default but ready to appear */
-      .header details > .header__submenu,
-      .header details > summary + * {
-        opacity: 0;
-        transform: translateY(-15px);
-        visibility: hidden;
-        transition: opacity var(--duration-default) ease,
-                    transform var(--duration-default) ease,
-                    visibility 0s linear var(--duration-default);
-        /* Don't set height: 0 here - that would cause the issue */
-      }
-      
-      /* Target all possible menu elements */
-      .header__submenu, 
-      .header-menu__submenu,
-      .list-menu__submenu,
-      .mega-menu {
-        height: auto !important;
-        min-height: 30px;
-        overflow: visible !important;
-      }
-      
-      /* Ensure the arrow rotates properly on hover */
-      .header details:hover > summary::after,
-      .header details[open] > summary::after {
-        transform: rotate(-180deg);
-      }
-      
-      /* Remove click-only functionality when using hover */
-      .header details > summary::before {
-        display: none;
-      }
-      
-      /* Force dropdown to be block display */
-      .header details[open] > .header__menu-items,
-      .header details:hover > .header__menu-items,
-      .header details[open] > summary + ul,
-      .header details:hover > summary + ul {
-        display: block !important;
-        height: auto !important;
-      }
-    }
-  {%- endif -%}
-  
+{%- style -%}
   .header {
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
   }
@@ -188,8 +126,6 @@
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
-
-
 
 {%- liquid
   for block in section.blocks
@@ -494,67 +430,6 @@
   }
 
   customElements.define('sticky-header', StickyHeader);
-
-  document.addEventListener('DOMContentLoaded', function() {
-  // Only run this code if hover is the selected menu trigger type
-  {% if section.settings.menu_trigger_type == 'hover' %}
-    // Get all dropdown menu containers
-    const detailsElements = document.querySelectorAll('.header details');
-    
-    detailsElements.forEach(details => {
-      // Fix height issues on hover
-      details.addEventListener('mouseenter', function() {
-        // Find the submenu (first ul after summary)
-        const summary = this.querySelector('summary');
-        const submenu = summary.nextElementSibling;
-        
-        if (submenu) {
-          // Force display properties
-          submenu.style.height = 'auto';
-          submenu.style.opacity = '1';
-          submenu.style.visibility = 'visible';
-          submenu.style.transform = 'translateY(0)';
-          submenu.style.overflow = 'visible';
-          submenu.style.display = 'block';
-          
-          // Open the details element programmatically (sets the [open] attribute)
-          this.setAttribute('open', '');
-        }
-      });
-      
-      // Handle mouseleave to properly hide menu when desired
-      details.addEventListener('mouseleave', function() {
-        // Only if hover is the trigger type, close on mouse leave
-        this.removeAttribute('open');
-        
-        // Find the submenu again
-        const summary = this.querySelector('summary');
-        const submenu = summary.nextElementSibling;
-        
-        if (submenu) {
-          // Reset display properties with a slight delay to allow for animation
-          setTimeout(() => {
-            if (!this.matches(':hover')) {
-              submenu.style.opacity = '0';
-              submenu.style.visibility = 'hidden';
-              submenu.style.transform = 'translateY(-15px)';
-            }
-          }, 200);
-        }
-      });
-      
-      // Prevent click from toggling when in hover mode
-      const summaryElement = details.querySelector('summary');
-      if (summaryElement) {
-        summaryElement.addEventListener('click', function(e) {
-          // Prevent the default toggle behavior in hover mode
-          e.preventDefault();
-          return false;
-        });
-      }
-    });
-  {% endif %}
-});
 {% endjavascript %}
 
 <script type="application/ld+json">
@@ -634,22 +509,6 @@
       "id": "menu_right",
       "default": "main-menu",
       "label": "Menu Right"
-    },
-    {
-      "type": "select",
-      "id": "menu_trigger_type",
-      "options": [
-        {
-          "value": "click",
-          "label": "Click to open"
-        },
-        {
-          "value": "hover",
-          "label": "Hover to open"
-        }
-      ],
-      "default": "click",
-      "label": "Menu dropdown trigger"
     },
     {
       "type": "select",
