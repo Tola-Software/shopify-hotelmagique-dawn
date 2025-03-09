@@ -2,7 +2,7 @@
 
 <div class="about-page color-{{ section.settings.color_scheme }}" style="padding-top: {{ section.settings.padding_top | times: 0.1 }}rem; padding-bottom: {{ section.settings.padding_bottom | times: 0.1 }}rem;">
   <div class="page-width">
-    <div class="about-container grid grid--2-col grid--2-col-tablet {% if section.settings.layout == 'content_first' %}about-container--reverse{% endif %}"">
+    <div class="about-container grid grid--2-col grid--2-col-tablet {% if section.settings.layout == 'content_first' %}about-container--reverse{% endif %}">
       {% if section.settings.image != blank %}
         <div class="about-image grid__item">
           {%- assign img_url = section.settings.image | image_url: width: 1500 -%}
@@ -18,15 +18,15 @@
       
       <div class="about-content grid__item">
         {% if section.settings.subtitle != blank %}
-          <h3 class="about-subtitle">{{ section.settings.subtitle }}</h3>
+          <{{ section.settings.subtitle_tag }} class="about-subtitle">{{ section.settings.subtitle }}</{{ section.settings.subtitle_tag }}>
         {% endif %}
         
         {% if section.settings.title != blank %}
-          <h2 class="about-title {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
+          <{{ section.settings.title_tag }} class="about-title {{ section.settings.heading_size }}">{{ section.settings.title }}</{{ section.settings.title_tag }}>
         {% endif %}
 
         {% if section.settings.title_2 != blank %}
-          <h2 class="about-title-2 {{ section.settings.heading_size }}">{{ section.settings.title_2 }}</h2>
+          <{{ section.settings.title_2_tag }} class="about-title-2 {{ section.settings.heading_size }}">{{ section.settings.title_2 }}</{{ section.settings.title_2_tag }}>
         {% endif %}
         
         {% if section.settings.description != blank %}
@@ -63,10 +63,54 @@
         "label": "Desktop layout"
       },
       {
+        "type": "header",
+        "content": "Content"
+      },
+      {
         "type": "text",
         "id": "subtitle",
         "label": "Subtitle",
         "default": "Our Story"
+      },
+      {
+        "type": "select",
+        "id": "subtitle_tag",
+        "options": [
+          {
+            "value": "h1",
+            "label": "H1"
+          },
+          {
+            "value": "h2",
+            "label": "H2"
+          },
+          {
+            "value": "h3",
+            "label": "H3"
+          },
+          {
+            "value": "h4",
+            "label": "H4"
+          },
+          {
+            "value": "h5",
+            "label": "H5"
+          },
+          {
+            "value": "h6",
+            "label": "H6"
+          },
+          {
+            "value": "p",
+            "label": "Paragraph"
+          },
+          {
+            "value": "div",
+            "label": "Div"
+          }
+        ],
+        "default": "h3",
+        "label": "Subtitle tag"
       },
       {
         "type": "text",
@@ -75,16 +119,84 @@
         "default": "About Our Company"
       },
       {
+        "type": "select",
+        "id": "title_tag",
+        "options": [
+          {
+            "value": "h1",
+            "label": "H1"
+          },
+          {
+            "value": "h2",
+            "label": "H2"
+          },
+          {
+            "value": "h3",
+            "label": "H3"
+          },
+          {
+            "value": "h4",
+            "label": "H4"
+          },
+          {
+            "value": "h5",
+            "label": "H5"
+          },
+          {
+            "value": "h6",
+            "label": "H6"
+          }
+        ],
+        "default": "h2",
+        "label": "Title 1 tag"
+      },
+      {
         "type": "text",
         "id": "title_2",
         "label": "Title 2",
         "default": "Title"
       },
       {
+        "type": "select",
+        "id": "title_2_tag",
+        "options": [
+          {
+            "value": "h1",
+            "label": "H1"
+          },
+          {
+            "value": "h2",
+            "label": "H2"
+          },
+          {
+            "value": "h3",
+            "label": "H3"
+          },
+          {
+            "value": "h4",
+            "label": "H4"
+          },
+          {
+            "value": "h5",
+            "label": "H5"
+          },
+          {
+            "value": "h6",
+            "label": "H6"
+          }
+        ],
+        "default": "h2",
+        "label": "Title 2 tag"
+      },
+      {
         "type": "richtext",
         "id": "description",
         "label": "Description",
         "default": "<p>Share your brand story, values, or mission statement with your customers.</p>"
+      },
+      {
+        "type": "header",
+        "content": "Image"
       },
       {
         "type": "image_picker",
