@@ -194,15 +194,7 @@
     {%- endif -%}
 
     <div class="hm-header__left">
-      {%- liquid
-        if section.settings.menu != blank
-          if section.settings.menu_type_desktop == 'dropdown'
-            render 'hm-header-dropdown-menu', menu: section.settings.menu
-          elsif section.settings.menu_type_desktop != 'drawer'
-            render 'header-mega-menu'
-          endif
-        endif
-      %}
+      {%- render 'hm-header-dropdown-menu', menu: section.settings.menu %}
     </div>
 
     {%- if section.settings.logo_position == 'middle-center' -%}
@@ -236,15 +228,7 @@
     {%- endif -%}
 
     <div class="hm-header__right">
-      {%- liquid
-        if section.settings.menu_right != blank
-          if section.settings.menu_type_desktop == 'dropdown'
-            render 'hm-header-dropdown-menu', menu: section.settings.menu_right
-          elsif section.settings.menu_type_desktop != 'drawer'
-            render 'header-mega-menu'
-          endif
-        endif
-      %}
+      {%- render 'hm-header-dropdown-menu', menu: section.settings.menu_right %}
       <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
         <div class="desktop-localization-wrapper">
           {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
