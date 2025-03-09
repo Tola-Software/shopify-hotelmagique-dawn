@@ -2,35 +2,36 @@
 
 <div class="about-page color-{{ section.settings.color_scheme }}">
   <div class="page-width">
-    <div class="about-container">
-      <div class="about-content">
-        {% if section.settings.subtitle != blank %}
-          <h3 class="about-subtitle">{{ section.settings.subtitle }}</h3>
-        {% endif %}
+  <div class="grid">
+    <!-- Left column (Image) -->
+    <div class="grid__item grid__item--medium-up-half">
+      <div class="media">
+        <img
+          src="{{ section.settings.image | img_url: 'master' }}"
+          alt="{{ section.settings.image.alt | escape }}"
+          loading="lazy"
+          class="media-image"
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}"
+        >
+      </div>
+    </div>
+    
+    <!-- Right column (Content) -->
+    <div class="grid__item grid__item--medium-up-half">
+      <div class="rte">
+        <h2>{{ section.settings.heading | escape }}</h2>
+        {{ section.settings.content }}
         
-        {% if section.settings.title != blank %}
-          <h2 class="about-title {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
-        {% endif %}
-        
-        {% if section.settings.description != blank %}
-          <div class="about-description">{{ section.settings.description }}</div>
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <a href="{{ section.settings.button_link }}" class="button{% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">
+            {{ section.settings.button_label | escape }}
+          </a>
         {% endif %}
       </div>
-      
-      {% if section.settings.image != blank %}
-        <div class="about-image">
-          {%- assign img_url = section.settings.image | image_url: width: 1500 -%}
-          <img src="{{ img_url }}"
-            loading="lazy"
-            alt="{{ section.settings.image.alt | escape }}"
-            width="{{ section.settings.image.width }}"
-            height="{{ section.settings.image.height }}"
-            class="about-img"
-          >
-        </div>
-      {% endif %}
     </div>
   </div>
+</div>
 </div>
 
 {% schema %}
