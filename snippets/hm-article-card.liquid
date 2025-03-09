@@ -1,5 +1,6 @@
 {% comment %}
   Renders an article card for a given blog with settings to either show the image or not.
+  Now supports hover image through custom.hover_image metafield.
 
   Accepts:
   - blog: {Object} Blog object
@@ -24,7 +25,6 @@
     endif
   -%}
   <div class="article-card-wrapper card-wrapper underline-links-hover">
-    {% comment %} <article aria-labelledby="Article-{{ article.id }}"> {% endcomment %}
     <div
       class="
         card article-card
@@ -43,7 +43,7 @@
         {%- if show_image == true and article.image -%}
           <div class="article-card__image-wrapper card__media">
             <div
-              class="article-card__image media media--hover-effect"
+              class="article-card__image media media--hover-effect article-image-container"
               {% if section.settings.media_height == 'adapt' %}
                 style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"
               {% endif %}
@@ -62,13 +62,36 @@
                 src="{{ article.image.src | image_url: width: 533 }}"
                 sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
                 alt="{{ article.image.src.alt | escape }}"
-                class="motion-reduce"
+                class="motion-reduce article-primary-image"
                 {% unless lazy_load == false %}
                   loading="lazy"
                 {% endunless %}
                 width="{{ article.image.width }}"
                 height="{{ article.image.height }}"
               >
+              
+              {%- if article.metafields.custom.hover_image -%}
+                <img
+                  srcset="
+                    {%- if article.metafields.custom.hover_image.width >= 165 -%}{{ article.metafields.custom.hover_image | image_url: width: 165 }} 165w,{%- endif -%}
+                    {%- if article.metafields.custom.hover_image.width >= 360 -%}{{ article.metafields.custom.hover_image | image_url: width: 360 }} 360w,{%- endif -%}
+                    {%- if article.metafields.custom.hover_image.width >= 533 -%}{{ article.metafields.custom.hover_image | image_url: width: 533 }} 533w,{%- endif -%}
+                    {%- if article.metafields.custom.hover_image.width >= 720 -%}{{ article.metafields.custom.hover_image | image_url: width: 720 }} 720w,{%- endif -%}
+                    {%- if article.metafields.custom.hover_image.width >= 1000 -%}{{ article.metafields.custom.hover_image | image_url: width: 1000 }} 1000w,{%- endif -%}
+                    {%- if article.metafields.custom.hover_image.width >= 1500 -%}{{ article.metafields.custom.hover_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                    {{ article.metafields.custom.hover_image | image_url }} {{ article.metafields.custom.hover_image.width }}w
+                  "
+                  src="{{ article.metafields.custom.hover_image | image_url: width: 533 }}"
+                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                  alt="{{ article.metafields.custom.hover_image.alt | default: article.title | escape }}"
+                  class="motion-reduce article-hover-image"
+                  {% unless lazy_load == false %}
+                    loading="lazy"
+                  {% endunless %}
+                  width="{{ article.metafields.custom.hover_image.width }}"
+                  height="{{ article.metafields.custom.hover_image.height }}"
+                >
+              {%- endif -%}
               {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
             </div>
           </div>

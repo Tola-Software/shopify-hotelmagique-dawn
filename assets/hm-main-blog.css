@@ -1,0 +1,27 @@
+.article-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.article-primary-image,
+.article-hover-image {
+  transition: opacity 0.3s ease;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.article-hover-image {
+  opacity: 0;
+}
+
+.article-image-container:hover .article-primary-image {
+  opacity: 0;
+}
+
+.article-image-container:hover .article-hover-image {
+  opacity: 1;
+}
