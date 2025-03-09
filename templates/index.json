@@ -60,7 +60,7 @@
       "settings": {
         "collection": "all",
         "products_to_show": 8,
-        "title": "Featured products",
+        "title": "",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -80,13 +80,179 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 28,
-        "padding_bottom": 36
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_hnMzMq": {
+      "type": "rich-text",
+      "blocks": {
+        "button_YcWcLp": {
+          "type": "button",
+          "settings": {
+            "button_label": "A LITTLE BIT OF MAGIQUE",
+            "button_link": "",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "button_YcWcLp"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "rich_text_yWRcKU": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3yhcHW": {
+          "type": "heading",
+          "settings": {
+            "heading": "Collaborations",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_3yhcHW"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 20
+      }
+    },
+    "featured_collection_nyixdQ": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 4,
+        "title": "",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-5",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_g4GGew": {
+      "type": "rich-text",
+      "blocks": {
+        "button_Gg9znA": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop All",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "button_Gg9znA"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "featured_collection_njNpUb": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 4,
+        "title": "",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-5",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_xgibbQ": {
+      "type": "rich-text",
+      "blocks": {
+        "button_g6H8gF": {
+          "type": "button",
+          "settings": {
+            "button_label": "EXPLORE ALL COLLABORATIONS",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "button_g6H8gF"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
     "image_banner",
     "rich_text",
-    "featured_collection"
+    "featured_collection",
+    "rich_text_hnMzMq",
+    "rich_text_yWRcKU",
+    "featured_collection_nyixdQ",
+    "rich_text_g4GGew",
+    "featured_collection_njNpUb",
+    "rich_text_xgibbQ"
   ]
 }
