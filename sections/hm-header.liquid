@@ -189,6 +189,8 @@
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
+
+
 {%- liquid
   for block in section.blocks
     if block.type == '@app'
@@ -492,6 +494,67 @@
   }
 
   customElements.define('sticky-header', StickyHeader);
+
+  document.addEventListener('DOMContentLoaded', function() {
+  // Only run this code if hover is the selected menu trigger type
+  {% if section.settings.menu_trigger_type == 'hover' %}
+    // Get all dropdown menu containers
+    const detailsElements = document.querySelectorAll('.header details');
+    
+    detailsElements.forEach(details => {
+      // Fix height issues on hover
+      details.addEventListener('mouseenter', function() {
+        // Find the submenu (first ul after summary)
+        const summary = this.querySelector('summary');
+        const submenu = summary.nextElementSibling;
+        
+        if (submenu) {
+          // Force display properties
+          submenu.style.height = 'auto';
+          submenu.style.opacity = '1';
+          submenu.style.visibility = 'visible';
+          submenu.style.transform = 'translateY(0)';
+          submenu.style.overflow = 'visible';
+          submenu.style.display = 'block';
+          
+          // Open the details element programmatically (sets the [open] attribute)
+          this.setAttribute('open', '');
+        }
+      });
+      
+      // Handle mouseleave to properly hide menu when desired
+      details.addEventListener('mouseleave', function() {
+        // Only if hover is the trigger type, close on mouse leave
+        this.removeAttribute('open');
+        
+        // Find the submenu again
+        const summary = this.querySelector('summary');
+        const submenu = summary.nextElementSibling;
+        
+        if (submenu) {
+          // Reset display properties with a slight delay to allow for animation
+          setTimeout(() => {
+            if (!this.matches(':hover')) {
+              submenu.style.opacity = '0';
+              submenu.style.visibility = 'hidden';
+              submenu.style.transform = 'translateY(-15px)';
+            }
+          }, 200);
+        }
+      });
+      
+      // Prevent click from toggling when in hover mode
+      const summaryElement = details.querySelector('summary');
+      if (summaryElement) {
+        summaryElement.addEventListener('click', function(e) {
+          // Prevent the default toggle behavior in hover mode
+          e.preventDefault();
+          return false;
+        });
+      }
+    });
+  {% endif %}
+});
 {% endjavascript %}
 
 <script type="application/ld+json">
