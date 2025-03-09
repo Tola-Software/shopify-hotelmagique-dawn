@@ -22,7 +22,11 @@
       "settings": {
         "layout": "image_first",
         "subtitle": "Welcome to Hôtel Magique",
+        "subtitle_tag": "p",
         "title": "Hôtel—We believe hotel life should be part of the everyday, extended beyond holidays.",
+        "title_tag": "h1",
+        "title_2": "Magique—We believe in Magique, and that it can be found everywhere, in everything, and everyone – You are Magique.",
+        "title_2_tag": "h2",
         "description": "<p>Hôtel Magique is a brand and community dedicated to spreading magique all around the world, seamlessly blended with the allure of hotel life. Inspired by our passion for travel and love of hotels, collections are created and curated like souvenirs from an imaginary hotel. From art prints for the lobby to buffet tableware, luxurious bed linen, and logo merchandise in the souvenir shop—Hôtel Magique lets you add that pampering hotel feel with an ambiance-de-magique to everyday life.<br/><br/>Bali-based Dutch creative Milou Neelen lent her creative vision to fashion brands and magazines, for many years. One day, she mused how to give her then-Amsterdam apartment a hotel feel. On a big sheet of momi paper, she painted ‘Hôtel Magique—Open Crazy Late.’ This marked the beginning of the brand, gradually building on the idea of an imaginary destination, making every day feel like a holiday.</p><p>Shortly after receiving her first order from New York was tagged in a post by the customer attending the NYC Women’s March, holding up Hôtel Magique postcards reading ‘You Are Magique’. That’s when Milou realized the brand had the potential to become bigger than just an online store—bringing positive meaning to people worldwide.</p><p>Driven by a loyal online community of 50,000+ organic followers, Hôtel Magique has established itself as a successful love brand, with a significant customer base in the U.S. ever expanding its global reach through collaborations with leading fashion, interior, and lifestyle brands including: Madewell, Anthropologie, Tombolo and the French Sézane.</p>",
         "image": "shopify://shop_images/MILOU-NEELEN.webp",
         "heading_size": "h1",
