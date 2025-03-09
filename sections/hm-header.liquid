@@ -11,8 +11,7 @@
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
-
-<style>
+{%- style -%}
   .hm-header.page-width{
     max-width: 1400px;
   }
@@ -99,9 +98,38 @@
       display: block;
     }
   }
-</style>
 
-{%- style -%}
+  /* Hover menu functionality */
+  {%- if section.settings.menu_trigger_type == 'hover' -%}
+    @media screen and (min-width: 990px) {
+      .header details:hover > summary::after,
+      .header details[open] > summary::after {
+        transform: rotate(-180deg);
+      }
+
+      .header details:hover > summary + *,
+      .header details[open] > summary + * {
+        animation: animateMenuOpen var(--duration-default) ease;
+      }
+
+      .header details:hover,
+      .header details[open] {
+        z-index: 3;
+      }
+
+      .header details:hover > summary + *,
+      .header details[open] > summary + * {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      .header details > summary::before {
+        display: none;
+      }
+    }
+  {%- endif -%}
+  
   .header {
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
   }
