@@ -1,5 +1,38 @@
 {{ 'hm-about-page.css' | asset_url | stylesheet_tag }}
 
+<div class="about-page color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    <div class="about-container">
+      <div class="about-content">
+        {% if section.settings.subtitle != blank %}
+          <h3 class="about-subtitle">{{ section.settings.subtitle }}</h3>
+        {% endif %}
+        
+        {% if section.settings.title != blank %}
+          <h2 class="about-title {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
+        {% endif %}
+        
+        {% if section.settings.description != blank %}
+          <div class="about-description">{{ section.settings.description }}</div>
+        {% endif %}
+      </div>
+      
+      {% if section.settings.image != blank %}
+        <div class="about-image">
+          {%- assign img_url = section.settings.image | image_url: width: 1500 -%}
+          <img src="{{ img_url }}"
+            loading="lazy"
+            alt="{{ section.settings.image.alt | escape }}"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+            class="about-img"
+          >
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
 {% schema %}
   {
     "name": "About Page",
@@ -9,6 +42,29 @@
       "groups": ["header", "footer"]
     },
     "settings": [
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle",
+        "default": "Our Story"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "About Our Company"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description",
+        "default": "<p>Share your brand story, values, or mission statement with your customers.</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
       {
         "type": "select",
         "id": "heading_size",
