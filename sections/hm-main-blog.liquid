@@ -21,6 +21,18 @@
     gap: 2rem;
   }
   
+  .blog-articles--align-left .blog-articles__article {
+    text-align: left;
+  }
+  
+  .blog-articles--align-center .blog-articles__article {
+    text-align: center;
+  }
+  
+  .blog-articles--align-right .blog-articles__article {
+    text-align: right;
+  }
+  
   @media screen and (max-width: 749px) {
     .blog-articles--column-2,
     .blog-articles--column-3,
@@ -50,7 +62,7 @@
       {{ blog.title | escape }}
     </h1>
 
-    <div class="blog-articles {% if section.settings.columns != '1' %}blog-articles--column-{{ section.settings.columns }}{% endif %}"
+    <div class="blog-articles {% if section.settings.columns != '1' %}blog-articles--column-{{ section.settings.columns }}{% endif %} {% if section.settings.alignment != 'default' %}blog-articles--align-{{ section.settings.alignment }}{% endif %}"
       {%- for article in blog.articles -%}
         <div
           class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -107,6 +119,30 @@
       ],
       "default": "3",
       "label": "Number of columns"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "default",
+      "label": "Content alignment"
     },
     {
       "type": "checkbox",
