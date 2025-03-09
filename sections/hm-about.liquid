@@ -1,6 +1,20 @@
 {{ 'hm-about-page.css' | asset_url | stylesheet_tag }}
 
-<div class="about-page color-{{ section.settings.color_scheme }}" style="padding-top: {{ section.settings.padding_top | times: 0.1 }}rem; padding-bottom: {{ section.settings.padding_bottom | times: 0.1 }}rem;">
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="about-page color-{{ section.settings.color_scheme }}">
   <div class="page-width">
     <div class="about-container grid grid--1-col grid--2-col-tablet {% if section.settings.layout == 'content_first' %}about-container--reverse{% endif %}">
       {% if section.settings.image != blank %}
