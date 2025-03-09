@@ -20,6 +20,10 @@
     "hm_about_tcPf9z": {
       "type": "hm-about",
       "settings": {
+        "subtitle": "Welcome to Hôtel Magique",
+        "title": "Hôtel—We believe hotel life should be part of the everyday, extended beyond holidays.",
+        "description": "<p>Share your brand story, values, or mission statement with your customers.</p>",
+        "image": "shopify://shop_images/MILOU-NEELEN.webp",
         "heading_size": "h1",
         "color_scheme": "",
         "padding_top": 36,
