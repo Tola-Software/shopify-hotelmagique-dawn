@@ -42,6 +42,7 @@
         "mobile_logo_position": "center",
         "menu": "main-menu",
         "menu_right": "main-menu-right",
+        "menu_trigger_type": "hover",
         "sticky_header_type": "always",
         "show_line_separator": true,
         "color_scheme": "",
