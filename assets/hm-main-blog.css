@@ -57,6 +57,9 @@
 }
 
 /* Card */
+.main-blog .card-wrapper{
+  width: 100%;
+}
 .main-blog .card__information{
   max-width: 300px;
   margin-inline: auto;
