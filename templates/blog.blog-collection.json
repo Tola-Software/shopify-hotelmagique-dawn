@@ -27,9 +27,9 @@
       "settings": {
         "columns": "3",
         "alignment": "center",
+        "background_color": "#dde2dc",
         "show_image": true,
         "image_height": "large",
-        "custom_image_height": 400,
         "show_date": false,
         "show_author": false,
         "padding_top": 36,
