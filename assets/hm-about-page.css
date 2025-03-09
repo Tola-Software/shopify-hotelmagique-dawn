@@ -24,3 +24,15 @@
 .about-description{
   font-size: 14px;
 }
+
+/* Control mobile order */
+@media screen and (max-width: 749px) {
+  .about-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .about-container--reverse {
+    flex-direction: column-reverse;
+  }
+}

@@ -2,7 +2,7 @@
 
 <div class="about-page color-{{ section.settings.color_scheme }}" style="padding-top: {{ section.settings.padding_top | times: 0.1 }}rem; padding-bottom: {{ section.settings.padding_bottom | times: 0.1 }}rem;">
   <div class="page-width">
-    <div class="about-container grid grid--2-col grid--2-col-tablet {% if section.settings.layout == 'content_first' %}about-container--reverse{% endif %}">
+    <div class="about-container grid grid--1-col grid--2-col-tablet {% if section.settings.layout == 'content_first' %}about-container--reverse{% endif %}">
       {% if section.settings.image != blank %}
         <div class="about-image grid__item">
           {%- assign img_url = section.settings.image | image_url: width: 1500 -%}
@@ -61,6 +61,22 @@
         ],
         "default": "image_first",
         "label": "Desktop layout"
+      },
+      {
+        "type": "select",
+        "id": "mobile_layout",
+        "options": [
+          {
+            "value": "image_first",
+            "label": "Image first"
+          },
+          {
+            "value": "content_first", 
+            "label": "Content first"
+          }
+        ],
+        "default": "image_first",
+        "label": "Mobile layout"
       },
       {
         "type": "header",
