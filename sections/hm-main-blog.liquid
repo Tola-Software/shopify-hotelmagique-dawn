@@ -62,9 +62,14 @@
       {{ blog.title | escape }}
     </h1>
 
-    <div class="blog-articles {% if section.settings.columns != '1' %}blog-articles--column-{{ section.settings.columns }}{% endif %} {% if section.settings.alignment != 'default' %}blog-articles--align-{{ section.settings.alignment }}{% endif %}"
+    <div class="blog-articles {% if section.settings.columns != '1' %}blog-articles--column-{{ section.settings.columns }}{% endif %} {% if section.settings.alignment != 'default' %}blog-articles--align-{{ section.settings.alignment }}{% endif %}">
       {%- for article in blog.articles -%}
-        <div class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <div class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: {{ forloop.index }};"
+          {% endif %}
+        >
           {%- render 'article-card',
             article: article,
             media_height: section.settings.image_height,
