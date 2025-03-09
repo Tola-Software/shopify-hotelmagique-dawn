@@ -11,3 +11,8 @@
   font-family: "Snell Roundhand";
   src: url({{ "snell-roundhand" | asset_url }}) format("woff2");
 }
+
+/* Global */
+img{
+  max-width: 100%;
+}
