@@ -1,37 +1,36 @@
 {{ 'hm-about-page.css' | asset_url | stylesheet_tag }}
 
-<div class="about-page color-{{ section.settings.color_scheme }}">
+<div class="about-page color-{{ section.settings.color_scheme }}" style="padding-top: {{ section.settings.padding_top | times: 0.1 }}rem; padding-bottom: {{ section.settings.padding_bottom | times: 0.1 }}rem;">
   <div class="page-width">
-  <div class="grid">
-    <!-- Left column (Image) -->
-    <div class="grid__item grid__item--medium-up-half">
-      <div class="media">
-        <img
-          src="{{ section.settings.image | image_url: 'master' }}"
-          alt="{{ section.settings.image.alt | escape }}"
-          loading="lazy"
-          class="media-image"
-          width="{{ section.settings.image.width }}"
-          height="{{ section.settings.image.height }}"
-        >
-      </div>
-    </div>
-    
-    <!-- Right column (Content) -->
-    <div class="grid__item grid__item--medium-up-half">
-      <div class="rte">
-        <h2>{{ section.settings.heading | escape }}</h2>
-        {{ section.settings.content }}
+    <div class="about-container grid grid--2-col grid--2-col-tablet {% if section.settings.layout == 'content_first' %}about-container--reverse{% endif %}"">
+      {% if section.settings.image != blank %}
+        <div class="about-image grid__item">
+          {%- assign img_url = section.settings.image | image_url: width: 1500 -%}
+          <img src="{{ img_url }}"
+            loading="lazy"
+            alt="{{ section.settings.image.alt | escape }}"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+            class="about-img"
+          >
+        </div>
+      {% endif %}
+      
+      <div class="about-content grid__item">
+        {% if section.settings.subtitle != blank %}
+          <h3 class="about-subtitle">{{ section.settings.subtitle }}</h3>
+        {% endif %}
         
-        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-          <a href="{{ section.settings.button_link }}" class="button{% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">
-            {{ section.settings.button_label | escape }}
-          </a>
+        {% if section.settings.title != blank %}
+          <h2 class="about-title {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
+        {% endif %}
+        
+        {% if section.settings.description != blank %}
+          <div class="about-description">{{ section.settings.description }}</div>
         {% endif %}
       </div>
     </div>
   </div>
-</div>
 </div>
 
 {% schema %}
@@ -43,6 +42,22 @@
       "groups": ["header", "footer"]
     },
     "settings": [
+      {
+        "type": "select",
+        "id": "layout",
+        "options": [
+          {
+            "value": "image_first",
+            "label": "Image first"
+          },
+          {
+            "value": "content_first",
+            "label": "Content first"
+          }
+        ],
+        "default": "image_first",
+        "label": "Desktop layout"
+      },
       {
         "type": "text",
         "id": "subtitle",
