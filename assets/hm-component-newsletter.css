@@ -22,6 +22,7 @@
 
 .newsletter-form__field-wrapper .field__input {
   padding-right: 9rem;
+  border-bottom: 1px solid #000000;
 }
 
 .newsletter-form__field-wrapper .field {
