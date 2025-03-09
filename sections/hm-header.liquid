@@ -107,11 +107,16 @@
         transform: rotate(-180deg);
       }
 
-      .header details:hover > summary + *,
+      .header details:hover > .header__submenu{
+        animation: animateMenuOpen var(--duration-default) ease;
+        animation-fill-mode: forwards;
+        z-index: 1;
+      }
+      /* .header details:hover > summary + *,
       .header details[open] > summary + * {
         animation: animateMenuOpen var(--duration-default) ease;
         animation-fill-mode: forwards;
-      }
+      } */
 
       .header details:hover,
       .header details[open] {
