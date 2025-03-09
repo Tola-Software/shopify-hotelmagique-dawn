@@ -7,7 +7,7 @@
   position: relative;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 1025px) {
   .newsletter-form {
     align-items: flex-start;
     /* margin: 0 auto; */
