@@ -110,6 +110,7 @@
       .header details:hover > summary + *,
       .header details[open] > summary + * {
         animation: animateMenuOpen var(--duration-default) ease;
+        animation-fill-mode: forwards;
       }
 
       .header details:hover,
