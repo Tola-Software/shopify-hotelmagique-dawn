@@ -39,7 +39,6 @@
     "hm_header_7f7Gyb": {
       "type": "hm-header",
       "settings": {
-        "logo_position": "middle-center",
         "mobile_logo_position": "center",
         "menu": "main-menu",
         "menu_right": "main-menu-right",
