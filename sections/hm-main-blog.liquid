@@ -3,7 +3,7 @@
 {{ 'hm-main-blog.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  #shopify-section-template--{{ section.id }}{
+  #shopify-section-{{ section.id }}{
     background-color: {{ section.settings.background_color }};
   }
   
