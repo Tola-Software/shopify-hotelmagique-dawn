@@ -1,0 +1,14 @@
+.about-container--reverse {
+  flex-direction: row-reverse;
+}
+
+.about-content {
+  padding: 2rem;
+}
+
+/* Make image fill container nicely */
+.about-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
