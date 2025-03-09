@@ -55,3 +55,8 @@
 .article-image-container:hover .article-hover-image {
   opacity: 1;
 }
+
+/* Card */
+.main-blog .card__heading.h2{
+  font-size: 16px;
+}
