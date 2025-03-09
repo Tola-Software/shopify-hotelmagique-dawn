@@ -25,7 +25,8 @@
     "hm_main_blog_Mz4CrR": {
       "type": "hm-main-blog",
       "settings": {
-        "layout": "collage",
+        "columns": "3",
+        "alignment": "center",
         "show_image": true,
         "image_height": "medium",
         "show_date": true,
