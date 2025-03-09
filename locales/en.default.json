@@ -70,7 +70,6 @@
     "label": "Your Email",
     "success": "Thanks for subscribing",
     "button_label": "CHECK IN",
-    "button_test": ""
   },
   "accessibility": {
     "skip_to_text": "Skip to content",
