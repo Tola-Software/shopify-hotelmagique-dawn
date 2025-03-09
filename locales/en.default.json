@@ -69,7 +69,8 @@
   "newsletter": {
     "label": "Your Email",
     "success": "Thanks for subscribing",
-    "button_label": "CHECK IN"
+    "button_label": "CHECK IN",
+    "button_test": "Test"
   },
   "accessibility": {
     "skip_to_text": "Skip to content",
