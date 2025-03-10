@@ -33,7 +33,7 @@
   overflow: hidden;
 }
 
-.article-primary-image,
+/* .article-primary-image,
 .article-hover-image {
   transition: opacity 0.3s ease;
   width: 100%;
@@ -55,7 +55,7 @@
 .article-image-container:hover .article-hover-image {
   opacity: 1;
 }
-
+ */
 /* Card */
 .main-blog .card-wrapper{
   width: 100%;
