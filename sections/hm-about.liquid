@@ -66,14 +66,7 @@
     <div class="about-container grid grid--1-col grid--2-col-tablet {% if section.settings.layout == 'content_first' %}about-container--reverse{% endif %}">
       {% if section.settings.image != blank %}
         <div class="about-image grid__item">
-          {%- assign img_url = section.settings.image | image_url: width: 1500 -%}
-          <img src="{{ img_url }}"
-            loading="lazy"
-            alt="{{ section.settings.image.alt | escape }}"
-            width="{{ section.settings.image.width }}"
-            height="{{ section.settings.image.height }}"
-            class="about-img"
-          >
+          {{ section.settings.image | image_url: width: 1500 | img_tag: section.settings.image.alt, 'about-img', loading: 'lazy' }}
         </div>
       {% endif %}
       
