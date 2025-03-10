@@ -1,63 +1,103 @@
 {{ 'hm-section-blog-post.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js" defer></script>
 
 <article class="article-template">
-  {%- for block in section.blocks -%}
-    {%- case block.type -%}
-      {%- when '@app' -%}
-        <div class="page-width page-width--narrow">
-          {% render block %}
-        </div>
-      {%- when 'title' -%}
-        <header
-          class="page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
-          {{ block.shopify_attributes }}
-        >
-          <h1
-            class="article-template__title"
-          >
-            {{ article.title | escape }}
-          </h1>
-          {%- if block.settings.blog_show_date -%}
-            <span class="circle-divider caption-with-letter-spacing">
-              {{- article.published_at | time_tag: format: 'date' -}}
+  <div class="page-width">
+    <div class="article-two-column-layout">
+      <!-- Left Column - Image Slider -->
+      <div class="article-slider-column">
+        {% if article.metafields.custom.image_slider %}
+          <div class="swiper article-image-swiper">
+            <div class="swiper-wrapper">
+              {% for image in article.metafields.custom.image_slider.value %}
+                <div class="swiper-slide">
+                  <img
+                    srcset="
+                      {% if image.width >= 350 %}{{ image | image_url: width: 350 }} 350w,{% endif %}
+                      {% if image.width >= 750 %}{{ image | image_url: width: 750 }} 750w,{% endif %}
+                      {% if image.width >= 1100 %}{{ image | image_url: width: 1100 }} 1100w,{% endif %}
+                    "
+                    sizes="(min-width: 750px) 50vw, 100vw"
+                    src="{{ image | image_url: width: 750 }}"
+                    loading="lazy"
+                    alt="{{ image.alt | escape }}"
+                    width="{{ image.width }}"
+                    height="{{ image.height }}"
+                    class="article-slider-image"
+                  >
+                </div>
+              {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        {% endif %}
+      </div>
+      
+      <!-- Right Column - Content Blocks -->
+      <div class="article-content-column">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              <div class="page-width-content">
+                {% render block %}
+              </div>
+              
+            {%- when 'title' -%}
+              <header
+                class="article-header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                <h1 class="article-template__title">
+                  {{ article.title | escape }}
+                </h1>
+                {%- if block.settings.blog_show_date -%}
+                  <span class="circle-divider caption-with-letter-spacing">
+                    {{- article.published_at | time_tag: format: 'date' -}}
+                  </span>
+                {%- endif -%}
+                {%- if block.settings.blog_show_author -%}
+                  <span class="caption-with-letter-spacing">
+                    <span>{{ article.author }}</span>
+                  </span>
+                {%- endif -%}
+              </header>
+
+            {%- when 'content' -%}
+              <div
+                class="article-template__content rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                {{ article.content }}
+              </div>
+
+            {%- when 'share' -%}
+              <div
+                class="article-template__social-sharing{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                {% assign share_url = request.origin | append: article.url %}
+                {% render 'share-button', block: block, share_link: share_url %}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+        
+        <div class="article-template__back element-margin-top{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
+            <span class="icon-wrap">
+              <span class="svg-wrapper">
+                {{- 'icon-arrow.svg' | inline_asset_content -}}
+              </span>
             </span>
-          {%- endif -%}
-          {%- if block.settings.blog_show_author -%}
-            <span class="caption-with-letter-spacing">
-              <span>{{ article.author }}</span>
-            </span>
-          {%- endif -%}
-        </header>
-
-      {%- when 'content' -%}
-        <div
-          class="article-template__content page-width page-width--narrow rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {{ block.shopify_attributes }}
-        >
-          {{ article.content }}
+            {{ 'blogs.article.back_to_blog' | t: title: blog.title | escape }}
+          </a>
         </div>
-
-      {%- when 'share' -%}
-        <div
-          class="article-template__social-sharing page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {{ block.shopify_attributes }}
-        >
-          {% assign share_url = request.origin | append: article.url %}
-          {% render 'share-button', block: block, share_link: share_url %}
-        </div>
-    {%- endcase -%}
-  {%- endfor -%}
-
-  <div class="article-template__back element-margin-top center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
-      <span class="icon-wrap">
-        <span class="svg-wrapper">
-          {{- 'icon-arrow.svg' | inline_asset_content -}}
-        </span>
-      </span>
-      {{ 'blogs.article.back_to_blog' | t: title: blog.title | escape }}
-    </a>
+      </div>
+    </div>
   </div>
+
   {%- if blog.comments_enabled? -%}
     <div class="article-template__comment-wrapper background-secondary">
       <div
@@ -253,6 +293,102 @@
     </div>
   {%- endif -%}
 </article>
+
+<style>
+  .article-two-column-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .article-slider-column {
+    width: 100%;
+  }
+  
+  .article-content-column {
+    width: 100%;
+  }
+  
+  .article-image-swiper {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .article-slider-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.3);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 18px;
+  }
+  
+  .swiper-pagination-bullet {
+    background: #ffffff;
+    opacity: 0.7;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: #ffffff;
+    opacity: 1;
+  }
+  
+  .page-width-content {
+    width: 100%;
+  }
+  
+  @media screen and (min-width: 750px) {
+    .article-two-column-layout {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+    
+    .article-slider-column {
+      width: 50%;
+      position: sticky;
+      top: 1rem;
+    }
+    
+    .article-content-column {
+      width: 50%;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const swiper = new Swiper('.article-image-swiper', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+    });
+  });
+</script>
 
 <script type="application/ld+json">
   {{ article | structured_data }}
